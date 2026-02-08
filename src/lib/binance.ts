@@ -7,7 +7,9 @@ const BASE_URL = 'https://api.binance.com/api/v3';
 
 export async function fetchCandles(symbol: string = 'BTCUSDT', interval: string = '1h'): Promise<Candle[]> {
     try {
-        const response = await fetch(`${BASE_URL}/klines?symbol=${symbol}&interval=${interval}&limit=500`);
+        const response = await fetch(`${BASE_URL}/klines?symbol=${symbol}&interval=${interval}&limit=500`, {
+            cache: 'no-store'
+        });
         if (!response.ok) {
             throw new Error('Failed to fetch data from Binance');
         }

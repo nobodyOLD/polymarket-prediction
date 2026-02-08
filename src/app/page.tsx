@@ -70,7 +70,7 @@ export default function Home() {
   // Initial Load & Auto-Refresh
   useEffect(() => {
     loadData();
-    const interval = setInterval(loadData, 60000); // 60s Refresh
+    const interval = setInterval(loadData, 15000); // 15s Refresh (was 60s)
     return () => clearInterval(interval);
   }, [loadData]);
 
